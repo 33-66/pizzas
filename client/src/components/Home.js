@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Restaurant() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Restaurant;
