@@ -7,9 +7,9 @@ def seed_data():
         restaurant2 = Restaurant(name="star wars", address="456 Oak St")
         restaurant3 = Restaurant(name="red hut", address="101 dark web")
         
-        pizza1 = Pizza(name="Margherita", ingredients="Tomato, Mozzarella, Basil")  # Corrected typo in ingredients
+        pizza1 = Pizza(name="Margherita", ingredients="Tomato, Mozzarella, Basil")  
         pizza2 = Pizza(name="Pepperoni", ingredients="Pepperoni, Cheese, Tomato Sauce")
-        pizza3 = Pizza(name="papy", ingredients="cheese")  # Corrected typo in ingredients
+        pizza3 = Pizza(name="papy", ingredients="cheese")  
         
         restaurant_pizzas1 = RestaurantPizza(restaurant=restaurant1, pizza=pizza1, price=30)
         restaurant_pizzas2 = RestaurantPizza(restaurant=restaurant2, pizza=pizza2, price=20)
