@@ -46,7 +46,7 @@ function Home() {
       </div>
       <div className="card">
         <h2>Pizza Menu</h2>
-        {restaurant.pizzas && restaurant.pizzas.map((pizza) => (
+        {restaurant.pizzas.map((pizza) => (
           <div key={pizza.id}>
             <h3>{pizza.name}</h3>
             <p>

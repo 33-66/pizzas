@@ -2,10 +2,11 @@
 
 from flask import Flask, make_response,jsonify,request
 from flask_migrate import Migrate
-
+from flask_cors import CORS
 from models import db, Restaurant,Pizza,RestaurantPizza
 
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/simon/Flask/code_challenge2/python-code-challenge-pizzas/python-code-challenge-pizzas/code-challenge/app/db/app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -55,7 +56,7 @@ def delete_restuarnt(id):
     else:
         response = {"error":"Restaurant not found"}
         return make_response(jsonify(response),404)
-@app.route("/pizza" ,methods=["GET"])        
+@app.route("/pizzas" ,methods=["GET"])        
 def pizza():
     pizzas = Pizza.query.all()
     pizza_list = []
