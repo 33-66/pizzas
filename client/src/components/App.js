@@ -1,23 +1,19 @@
-import { Route ,Routes } from "react-router-dom";
-import Restaurant from "./Home";
-import Navbar from "./NavBar";
-import Home from "./Restaurant";
-// import {Switch} from  'react-router';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from "./Home";
+import Navbar from "./Navbar";
+import Restaurant from "./Restaurant";
+
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-    <Routes>
+      <Routes>
+        <Route path="/restaurants/:id" element={<Restaurant />} />
+        <Route path="/" element={<Home />} />
         
-            <Route path="/" element={<Restaurant/>}></Route>
-            <Route path="/restaurants/:id" element={<Home />}></Route>
-            
-        {/* </Route> */}
-        
-        </Routes>  
-    
-    </>
+      </Routes>
+    </Router>
   );
 }
 

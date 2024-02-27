@@ -7,13 +7,13 @@ from models import db, Restaurant,Pizza,RestaurantPizza
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/simon/Flask/code_challenge2/python-code-challenge-pizzas/python-code-challenge-pizzas/code-challenge/app/db/app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db '
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
 
 db.init_app(app)
-
+ 
 @app.route('/')
 def home():
     return '<ol><li>Restuarants</li><li>Pizza</li><li>add_pizza</li></ol>'

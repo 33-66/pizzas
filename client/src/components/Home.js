@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Restaurant() {
+function Home() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     fetch("/restaurants")
-      .then((r) => r.json())
-      .then(setRestaurants);
+      .then((r) => {
+        if (!r.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return r.json();
+      })
+      .then(setRestaurants)
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        // Handle the error, e.g., set an error state or show a message to the user
+      });
   }, []);
+
+  
 
   function handleDelete(id) {
     fetch(`/restaurants/${id}`, {
@@ -21,6 +32,7 @@ function Restaurant() {
       }
     });
   }
+  
 
   return (
     <section className="container">
@@ -37,4 +49,4 @@ function Restaurant() {
   );
 }
 
-export default Restaurant;
+export default Home;
